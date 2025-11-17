@@ -1,0 +1,138 @@
+<section class="hero-section">
+  <div class="container">
+    <div class="row align-items-center min-vh-100">
+      <div class="col-lg-6">
+        <div class="terminal-window">
+          <div class="terminal-header">
+            <div class="terminal-buttons">
+              <span class="terminal-button terminal-button-close"></span>
+              <span class="terminal-button terminal-button-minimize"></span>
+              <span class="terminal-button terminal-button-maximize"></span>
+            </div>
+            <div class="terminal-title">portfolio.exe</div>
+          </div>
+          <div class="terminal-body">
+            <div class="terminal-content">
+              <div class="terminal-line">
+                <span class="terminal-prompt">$</span>
+                <span class="terminal-command">whoami</span>
+              </div>
+              <div class="terminal-output">
+                <h1 class="display-3 fw-bold mb-4">
+                  {{ translations?.home?.greeting || 'Hello, I am' }}
+                  <span class="name-highlight">{{ translations?.home?.name || 'Your Name' }}</span>
+                </h1>
+                <h2 class="h3 mb-4">
+                  {{ translations?.home?.title || 'Full Stack Developer' }}
+                </h2>
+                <p class="lead mb-4">
+                  {{ translations?.home?.description || 'Creating innovative solutions...' }}
+                </p>
+              </div>
+              <div class="terminal-line">
+                <span class="terminal-prompt">$</span>
+                <span class="terminal-command typing-command">{{ typingText }}</span>
+                <span class="terminal-cursor">_</span>
+              </div>
+            </div>
+            <div class="terminal-actions d-flex gap-3 mt-4">
+              <a routerLink="/projetos" class="btn btn-primary btn-lg">
+                {{ translations?.home?.viewProjects || 'View Projects' }}
+              </a>
+              <a routerLink="/contato" class="btn btn-outline-primary btn-lg">
+                {{ translations?.home?.contactMe || 'Contact Me' }}
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6 text-center">
+        <div class="hero-image">
+          <img
+            [src]="profileImage"
+            alt="Elias Miranda"
+            class="profile-photo"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
+          />
+          <div class="placeholder-avatar" style="display: none">
+            <i class="bi bi-person-circle"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="features-section py-5">
+  <div class="container">
+    <div class="terminal-window terminal-window-large">
+      <div class="terminal-header">
+        <div class="terminal-buttons">
+          <span class="terminal-button terminal-button-close"></span>
+          <span class="terminal-button terminal-button-minimize"></span>
+          <span class="terminal-button terminal-button-maximize"></span>
+        </div>
+        <div class="terminal-title">skills.md</div>
+      </div>
+      <div class="terminal-body">
+        <div class="terminal-content">
+          <div class="row text-center mb-5">
+            <div class="col-12">
+              <div class="terminal-line">
+                <span class="terminal-prompt">#</span>
+                <span class="terminal-command">{{
+                  translations?.home?.whatIDo || 'What I do'
+                }}</span>
+              </div>
+              <p class="lead mt-3">
+                {{
+                  translations?.home?.specializedIn || 'Specialized in modern web development...'
+                }}
+              </p>
+            </div>
+          </div>
+          <div class="row g-4">
+            <div class="col-md-4">
+              <div class="feature-card text-center p-4">
+                <div class="feature-icon mb-3">
+                  <i class="bi bi-code-slash"></i>
+                </div>
+                <h4>{{ translations?.home?.frontendDev || 'Frontend Development' }}</h4>
+                <p class="text-muted">
+                  {{
+                    translations?.home?.frontendDesc ||
+                      'Creating modern and responsive interfaces...'
+                  }}
+                </p>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="feature-card text-center p-4">
+                <div class="feature-icon mb-3">
+                  <i class="bi bi-server"></i>
+                </div>
+                <h4>{{ translations?.home?.backendDev || 'Backend Development' }}</h4>
+                <p class="text-muted">
+                  {{ translations?.home?.backendDesc || 'RESTful APIs, microservices...' }}
+                </p>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="feature-card text-center p-4">
+                <div class="feature-icon mb-3">
+                  <i class="bi bi-phone"></i>
+                </div>
+                <h4>{{ translations?.home?.responsiveDesign || 'Responsive Design' }}</h4>
+                <p class="text-muted">
+                  {{
+                    translations?.home?.responsiveDesc || 'Optimized experiences for all devices...'
+                  }}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

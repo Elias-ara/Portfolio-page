@@ -1,0 +1,53 @@
+.projects-section {
+  min-height: calc(100vh - 200px);
+  padding-top: 2rem;
+  color: #fff;
+  background-color: #0d192b;
+}
+
+.projects-section h1,
+.projects-section .lead {
+  color: #fff;
+}
+
+.project-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3) !important;
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.project-card img {
+  height: 200px;
+  object-fit: cover;
+}
+
+.project-card .card-body {
+  background: transparent;
+  color: #fff;
+}
+
+.project-card .card-title {
+  color: #fff;
+}
+
+.project-card .card-text {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.project-card .text-muted {
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+
+.badge {
+  font-size: 0.75rem;
+  padding: 0.25rem 0.5rem;
+}
+

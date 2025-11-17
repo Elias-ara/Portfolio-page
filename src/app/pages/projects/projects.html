@@ -1,0 +1,44 @@
+<section class="projects-section py-5">
+  <div class="container">
+    <div class="row mb-5">
+      <div class="col-12 text-center">
+        <h1 class="display-4 mb-4">{{ translations?.projects?.title || 'My Projects' }}</h1>
+        <p class="lead">
+          {{ translations?.projects?.subtitle || 'Check out some of the projects...' }}
+        </p>
+      </div>
+    </div>
+
+    <div class="row g-4">
+      <div
+        *ngFor="let project of projects"
+        class="col-md-6 col-lg-4"
+      >
+        <div class="card project-card h-100 shadow-sm">
+          <img
+            [src]="project.image"
+            class="card-img-top"
+            [alt]="project.title"
+          />
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">{{ getProjectTitle(project) }}</h5>
+            <p class="card-text flex-grow-1">{{ getProjectDescription(project) }}</p>
+            <div class="mb-3">
+              <small class="text-muted">{{ translations?.projects?.technologies || 'Technologies' }}: </small>
+              <span
+                *ngFor="let tech of project.technologies; let last = last"
+                class="badge bg-primary me-1"
+              >
+                {{ tech }}<span *ngIf="!last">,</span>
+              </span>
+            </div>
+            <a [href]="project.link" class="btn btn-outline-primary mt-auto"
+              >{{ translations?.projects?.viewProject || 'View Project' }}</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
