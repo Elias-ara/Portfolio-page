@@ -7,18 +7,12 @@ Um portfólio moderno e responsivo desenvolvido com **Angular 20** e um backend 
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.9-blue?style=flat-square&logo=typescript)
 ![Bootstrap](https://img.shields.io/badge/Bootstrap-5.3-purple?style=flat-square&logo=bootstrap)
 
----
+## � Sobre
 
-## 📋 Índice
+Portfolio de demonstração completo para **Elias Araújo**, desenvolvedor full stack. O projeto apresenta uma aplicação web moderna com duas camadas distintas:
 
-- [Características](#características)
-- [Estrutura do Projeto](#estrutura-do-projeto)
-- [Instalação](#instalação)
-- [Uso](#uso)
-- [Configuração](#configuração)
-- [Deploy](#deploy)
-- [Tecnologias](#tecnologias)
-- [Autor](#autor)
+- **Frontend**: Interface responsiva e moderna construída com Angular, apresentando seções de home, sobre, projetos e contato
+- **Backend**: API REST escalável para processamento de mensagens de contato com validação, rate limiting e envio de emails via Gmail SMTP
 
 ---
 
@@ -26,183 +20,127 @@ Um portfólio moderno e responsivo desenvolvido com **Angular 20** e um backend 
 
 ### Frontend (Angular)
 
-- ✅ **Responsivo** - Funciona perfeitamente em desktop, tablet e mobile
-- ✅ **Multi-idioma** - Suporte para Português (PT) e Inglês (EN)
-- ✅ **Otimizado** - Bundle de apenas ~413 KB
-- ✅ **Modular** - Componentes reutilizáveis e bem estruturados
-- ✅ **Dinâmico** - Página de projetos, sobre, contato e home
-- ✅ **Acessível** - Suporte a navegação por teclado
+- **Responsivo** - Funciona perfeitamente em desktop, tablet e mobile
+- **Multi-idioma** - Suporte para Português (PT) e Inglês (EN) com trocador dinâmico
+- **Otimizado** - Bundle de apenas 609.68 kB (121.46 kB gzipped)
+- **Modular** - Componentes reutilizáveis (navbar, footer, páginas)
+- **Dinâmico** - Efeito de digitação em tempo real, transições suaves
+- **Acessível** - Suporte a navegação por teclado e semântica HTML
 
 ### Backend (Node.js)
 
-- ✅ **Validação** - Validação de formulário em frontend e backend
-- ✅ **Rate Limiting** - Proteção contra spam (5 emails/15 minutos por IP)
-- ✅ **CORS** - Configurado para aceitar requisições do frontend
-- ✅ **Email** - Integração com Gmail via Nodemailer
-- ✅ **Logs** - Sistema detalhado de logging
-- ✅ **Segurança** - Sanitização de dados e tratamento de erros
+- **Validação Robusta** - Validação de formulário em backend
+- **Rate Limiting** - Proteção contra spam (5 emails/15 minutos por IP)
+- **CORS Seguro** - Configurado especificamente para o frontend
+- **Email via SMTP** - Integração com Gmail via Nodemailer
+- **Tratamento de Erros** - Error handling completo
+- **Health Check** - Endpoint de status do servidor
 
----
-
-## 📁 Estrutura do Projeto
+## 🏗️ Arquitetura
 
 ```
-portfolio/
-├── portfolio-frontend/          # Aplicação Angular
-│   ├── src/
-│   │   ├── app/
-│   │   │   ├── _components/     # Componentes compartilhados
-│   │   │   │   ├── navbar/      # Navegação
-│   │   │   │   └── footer/      # Rodapé
-│   │   │   ├── _services/       # Serviços (Email, Tradução)
-│   │   │   ├── pages/           # Páginas
-│   │   │   │   ├── home/        # Página inicial
-│   │   │   │   ├── about/       # Sobre
-│   │   │   │   ├── projects/    # Projetos
-│   │   │   │   └── contact/     # Formulário de contato
-│   │   │   ├── app.ts           # Componente principal
-│   │   │   └── app-routing-module.ts
-│   │   ├── main.ts
-│   │   ├── styles.css           # Estilos globais
-│   │   └── index.html
-│   ├── angular.json
-│   ├── package.json
-│   └── tsconfig.json
+Portfolio (Monorepo)
 │
-├── portfolio-backend/           # Backend Node.js
-│   ├── src/
-│   │   ├── app.js               # Configuração Express
-│   │   ├── server.js            # Servidor principal
-│   │   ├── routes/
-│   │   │   └── contact.js       # Rotas de contato
-│   │   ├── controllers/
-│   │   │   └── contactController.js
-│   │   ├── services/
-│   │   │   └── emailService.js  # Serviço de email (Nodemailer)
-│   │   ├── middleware/
-│   │   │   ├── validation.js    # Validação de formulário
-│   │   │   ├── rateLimiter.js   # Rate limiting
-│   │   │   └── errorHandler.js
-│   │   └── config/
-│   │       └── emailConfig.js
-│   ├── .env                     # Variáveis de ambiente (não committed)
-│   ├── .env.example             # Exemplo de .env
-│   ├── package.json
-│   └── test-smtp.js             # Teste de conexão SMTP
+├── portfolio-frontend/          # Single Page Application (SPA)
+│   └── Angular 20 + Bootstrap 5
 │
-└── README.md                    # Este arquivo
+└── portfolio-backend/           # REST API
+    └── Node.js + Express 5
 ```
 
----
+## 🛠️ Stack Técnico
 
-## 🚀 Instalação
+### Frontend
 
-### Pré-requisitos
+- **Angular 20.3.0** - Framework para SPA
+- **TypeScript 5.9** - Linguagem de programação com tipos
+- **Bootstrap 5.3** - Framework CSS responsivo
+- **RxJS 7.8** - Programação reativa
 
-- Node.js v18+ e npm
-- Git
-- Conta Gmail com 2-Factor Authentication ativado
+### Backend
 
-### Passo 1: Clone o repositório
+- **Node.js 18+** - Runtime JavaScript
+- **Express 5.1** - Framework web minimalista
+- **Nodemailer 7.0** - Envio de emails
+- **express-rate-limit** - Middleware de rate limiting
 
-```bash
-git clone https://github.com/Elias-ara/Portfolio-page.git
-cd Portfolio-page
-```
+### DevOps
 
-### Passo 2: Instale dependências do Frontend
+- **Git** - Controle de versão
+- **npm** - Gerenciador de dependências
+- **dotenv** - Gerenciamento de variáveis de ambiente
 
-```bash
-cd portfolio-frontend
-npm install
-```
+## 📝 Funcionalidades Principais
 
-### Passo 3: Instale dependências do Backend
+### Página Home
 
-```bash
-cd ../portfolio-backend
-npm install
-```
+- Apresentação pessoal com efeito de digitação
+- Stack tecnológico com ícones
+- Call-to-action para projetos e contato
 
-### Passo 4: Configure o Backend
+### Página About
 
-Crie um arquivo `.env` no diretório `portfolio-backend/`:
+- História e objetivos profissionais
+- Habilidades técnicas (15+ tecnologias)
+- Soft skills (comunicação, trabalho em equipe, etc)
+- Disponível em PT e EN
 
-```properties
-PORT=3000
+### Página Projects
 
-# Gmail SMTP
-SMTP_HOST=smtp.gmail.com
-SMTP_PORT=587
-SMTP_SECURE=false
-SMTP_USER=seu_email@gmail.com
-SMTP_PASSWORD=sua_senha_de_app
-SMTP_FROM_EMAIL=seu_email@gmail.com
+- Galeria de projetos (estrutura preparada)
+- Cards responsivos com informações do projeto
+- Links diretos para repositórios/demos
 
-# Configuração de contato
-CONTACT_EMAIL=seu_email@gmail.com
+### Formulário de Contato
 
-# CORS
-CORS_ORIGIN=http://localhost:4200
-```
+- Validação em tempo real
+- Integração com backend
+- Envio de emails via Gmail SMTP
+- Rate limiting para proteção
+- Feedback visual de sucesso/erro
+- Mensagens em português e inglês
 
-**Como gerar a senha de app:**
+## 🌐 Suporte a Idiomas
 
-1. Ative 2-Factor Authentication em: https://myaccount.google.com/security
-2. Vá para: https://myaccount.google.com/apppasswords
-3. Selecione "Mail" e "Linux (ou seu SO)"
-4. Copie a senha de 16 caracteres
-5. Cole em `SMTP_PASSWORD` (sem espaços)
+O projeto oferece suporte completo para dois idiomas:
 
----
+- **Português Brasileiro (PT)** - Idioma padrão
+- **Inglês (EN)** - Completamente traduzido
 
-## 💻 Uso
+Trocador de idioma localizado na navbar com persistência de preferência.
 
-### Desenvolvimento Local
+## � Performance
 
-**Terminal 1 - Backend:**
+- **Bundle Size**: 609.68 kB (raw) | 121.46 kB (gzipped)
+- **Build Tool**: Angular CLI com Vite
+- **Lazy Loading**: Roteamento otimizado
+- **Rate Limit**: 5 emails / 15 minutos por IP
 
-```bash
-cd portfolio-backend
-npm start
-```
+## 🔐 Segurança
 
-O servidor estará disponível em `http://localhost:3000`
+- **CORS**: Restrito ao frontend local
+- **Rate Limiting**: Proteção contra spam
+- **Validação**: Dupla validação (client + server)
+- **Variáveis de Ambiente**: Credenciais seguras em .env
+- **Error Handling**: Mensagens de erro genéricas ao cliente
 
-**Terminal 2 - Frontend:**
+## 👤 Autor
 
-```bash
-cd portfolio-frontend
-ng serve
-# ou
-npm start
-```
+**Elias Araújo**
 
-A aplicação estará disponível em `http://localhost:4200`
+- GitHub: [@Elias-ara](https://github.com/Elias-ara)
+- LinkedIn: [elias-ara](https://linkedin.com/in/elias-ara)
+- Instagram: [@eliaxs.mda](https://instagram.com/eliaxs.mda)
 
-### Teste o Formulário de Contato
+## 📄 Licença
 
-1. Abra: http://localhost:4200/contato (ou clique em "Contato" na navbar)
-2. Preencha o formulário:
-   - Nome (min. 3 caracteres)
-   - Email válido
-   - Assunto (min. 5 caracteres)
-   - Mensagem (min. 10 caracteres)
-3. Clique em "Enviar Mensagem"
-4. Você deve receber um email em poucos segundos
+Este projeto é de código aberto e disponível sob a licença ISC.
+"email": "joao@example.com",
+"subject": "Teste do formulário",
+"message": "Esta é uma mensagem de teste completa com mais de 10 caracteres"
+}'
 
-### Teste com curl (Terminal)
-
-```bash
-curl -X POST http://localhost:3000/api/contact/send-email \
-  -H "Content-Type: application/json" \
-  -d '{
-    "name": "João Silva",
-    "email": "joao@example.com",
-    "subject": "Teste do formulário",
-    "message": "Esta é uma mensagem de teste completa com mais de 10 caracteres"
-  }'
-```
+````
 
 Resposta esperada:
 
@@ -211,7 +149,7 @@ Resposta esperada:
   "success": true,
   "message": "Email enviado com sucesso!"
 }
-```
+````
 
 ---
 
@@ -258,143 +196,6 @@ Edite `portfolio-backend/src/middleware/validation.js`
 
 ---
 
-## 🌐 Deploy
-
-### Deploy do Backend
-
-#### Opção 1: Render (Recomendado)
-
-1. Crie conta em: https://render.com
-2. Clique em "New Web Service"
-3. Conecte seu GitHub
-4. Selecione o repositório
-5. Configure:
-   - **Build Command**: `npm install`
-   - **Start Command**: `npm start`
-   - **Environment**: Adicione variáveis de `.env`
-6. Deploy
-
-#### Opção 2: Railway
-
-1. Crie conta em: https://railway.app
-2. Clique em "New Project"
-3. Selecione "Deploy from GitHub"
-4. Configure variáveis de ambiente
-5. Deploy automático
-
-### Deploy do Frontend
-
-#### Opção 1: Vercel (Recomendado)
-
-```bash
-# Instale Vercel CLI
-npm i -g vercel
-
-# Deploy
-cd portfolio-frontend
-vercel
-```
-
-#### Opção 2: Netlify
-
-```bash
-# Build
-ng build
-
-# Deploy
-# Arraste a pasta 'dist' para https://app.netlify.com
-```
-
-#### Após deploy, atualize backendUrl
-
-Edite `portfolio-frontend/src/app/_services/email.service.ts`:
-
-```typescript
-private backendUrl = 'https://seu-backend.onrender.com/api';
-```
-
----
-
-## 🛠️ Tecnologias
-
-### Frontend
-
-- **Angular 20.3.0** - Framework web
-- **TypeScript 5.9.2** - Linguagem
-- **Bootstrap 5.3.8** - CSS Framework
-- **RxJS 7.8** - Programação reativa
-
-### Backend
-
-- **Node.js** - Runtime
-- **Express 5.1** - Framework web
-- **Nodemailer 7.0** - Envio de emails
-- **Express-rate-limit** - Rate limiting
-- **Dotenv 17.2** - Variáveis de ambiente
-- **CORS 2.8** - Cross-origin requests
-- **Body-parser 2.2** - Parsing de JSON
-
-### Desenvolvimento
-
-- **Angular CLI 20.3.9** - CLI do Angular
-- **Prettier** - Formatação de código
-- **Git** - Versionamento
-
----
-
-## 📊 Performance
-
-- **Bundle Size**: ~413 KB (uncompressed)
-- **Lighthouse Score**: A (90+)
-- **Mobile Friendly**: ✅ Sim
-- **Email Response Time**: < 2 segundos
-
----
-
-## 🔒 Segurança
-
-- ✅ CORS habilitado apenas para frontend
-- ✅ Rate limiting (5 emails/15min)
-- ✅ Validação de entrada (frontend + backend)
-- ✅ Sanitização de dados
-- ✅ Tratamento de erros seguro
-- ✅ Variáveis de ambiente (não comitadas)
-
----
-
-## 🐛 Troubleshooting
-
-### Backend não conecta ao Gmail
-
-```bash
-# Teste a conexão SMTP
-cd portfolio-backend
-node test-smtp.js
-```
-
-Se o erro for "Invalid login":
-
-1. Verifique se 2FA está ativado
-2. Gere nova senha de app
-3. Copie SEM ESPAÇOS
-4. Atualize `.env`
-
-### Frontend não conecta ao backend
-
-1. Verifique se backend está rodando: `http://localhost:3000/health`
-2. Verifique CORS_ORIGIN em `.env`
-3. Verifique backendUrl em `email.service.ts`
-
-### Limite de rate limiting atingido
-
-Aguarde 15 minutos e tente novamente (ou altere o limite em `rateLimiter.js`)
-
----
-
-## 📝 Licença
-
-Este projeto está sob a licença MIT. Veja o arquivo `LICENSE` para mais detalhes.
-
 ---
 
 ## 👤 Autor
@@ -402,20 +203,9 @@ Este projeto está sob a licença MIT. Veja o arquivo `LICENSE` para mais detalh
 **Elias Araújo**
 
 - GitHub: [@Elias-ara](https://github.com/Elias-ara)
-- Email: elias.ara.dev@gmail.com
-- LinkedIn: [seu-perfil](https://linkedin.com)
+- LinkedIn: [elias-ara](https://linkedin.com/in/elias-ara)
+- Instagram: [@eliaxs.mda](https://instagram.com/eliaxs.mda)
 
----
+## � Licença
 
-## 🎉 Agradecimentos
-
-Obrigado por visitar meu portfólio! Se você gostou, deixe uma ⭐ no GitHub!
-
----
-
-## 📞 Suporte
-
-Tem alguma dúvida ou sugestão? Abra uma issue no GitHub ou entre em contato!
-
-**Versão**: 1.0.0  
-**Última atualização**: Novembro 2025
+Este projeto é de código aberto e disponível sob a licença ISC.
