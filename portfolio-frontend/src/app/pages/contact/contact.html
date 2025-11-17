@@ -1,0 +1,144 @@
+<section class="contact-section py-5">
+  <div class="container">
+    <div class="row mb-5">
+      <div class="col-12 text-center">
+        <h1 class="display-4 mb-4">{{ translations?.contact?.title || 'Get in Touch' }}</h1>
+        <p class="lead">
+          {{ translations?.contact?.subtitle || 'I am always open to new opportunities...' }}
+        </p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-6 mb-4">
+        <div class="contact-info">
+          <h3 class="mb-4">{{ translations?.contact?.contactInfo || 'Contact Information' }}</h3>
+          <div class="contact-item mb-3">
+            <i class="bi bi-envelope me-2"></i>
+            <strong>{{ translations?.contact?.email || 'Email' }}:</strong>
+            <a [href]="'mailto:' + contactInfo.email">{{ contactInfo.email }}</a>
+          </div>
+          <div class="contact-item mb-3">
+            <i class="bi bi-telephone me-2"></i>
+            <strong>{{ translations?.contact?.phone || 'Phone' }}:</strong>
+            <a [href]="'tel:' + contactInfo.phone">{{ contactInfo.phone }}</a>
+          </div>
+          <div class="contact-item mb-3">
+            <i class="bi bi-geo-alt me-2"></i>
+            <strong>{{ translations?.contact?.location || 'Location' }}:</strong>
+            {{ getLocation() }}
+          </div>
+
+          <div class="social-links mt-4">
+            <h5 class="mb-3">{{ translations?.contact?.socialMedia || 'Social Media' }}</h5>
+            <div class="d-flex gap-3">
+              <a
+                *ngFor="let social of socialLinks"
+                [href]="social.url"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="social-link"
+                [title]="social.name"
+              >
+                <i [class]="'bi bi-' + social.icon"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-6">
+        <form (ngSubmit)="onSubmit()" #contactForm="ngForm">
+          <!-- Mensagem de Sucesso/Erro -->
+          <div
+            *ngIf="submitMessage"
+            [class]="
+              'alert alert-' +
+              (submitMessageType === 'success' ? 'success' : 'danger') +
+              ' alert-dismissible fade show'
+            "
+            role="alert"
+          >
+            {{ submitMessage }}
+            <button
+              type="button"
+              class="btn-close"
+              (click)="submitMessage = ''"
+              aria-label="Close"
+            ></button>
+          </div>
+
+          <div class="mb-3">
+            <label for="name" class="form-label">{{ translations?.contact?.name || 'Name' }}</label>
+            <input
+              type="text"
+              class="form-control"
+              id="name"
+              name="name"
+              required
+              ngModel
+              [disabled]="isSubmitting"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="email" class="form-label">{{
+              translations?.contact?.email || 'Email'
+            }}</label>
+            <input
+              type="email"
+              class="form-control"
+              id="email"
+              name="email"
+              required
+              ngModel
+              [disabled]="isSubmitting"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="subject" class="form-label">{{
+              translations?.contact?.subject || 'Subject'
+            }}</label>
+            <input
+              type="text"
+              class="form-control"
+              id="subject"
+              name="subject"
+              required
+              ngModel
+              [disabled]="isSubmitting"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="message" class="form-label">{{
+              translations?.contact?.message || 'Message'
+            }}</label>
+            <textarea
+              class="form-control"
+              id="message"
+              name="message"
+              rows="5"
+              required
+              ngModel
+              [disabled]="isSubmitting"
+            ></textarea>
+          </div>
+          <button
+            type="submit"
+            class="btn btn-primary"
+            [disabled]="!contactForm.valid || isSubmitting"
+          >
+            <span *ngIf="!isSubmitting">{{ translations?.contact?.send || 'Send Message' }}</span>
+            <span *ngIf="isSubmitting">
+              <span
+                class="spinner-border spinner-border-sm me-2"
+                role="status"
+                aria-hidden="true"
+              ></span>
+              {{ translations?.contact?.sending || 'Sending...' }}
+            </span>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

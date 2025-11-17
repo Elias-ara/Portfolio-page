@@ -1,0 +1,61 @@
+<nav
+  class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top"
+  style="background-color: #0d192b !important"
+>
+  <div class="container">
+    <a class="navbar-brand fw-bold typing-brand" routerLink="/">
+      <span class="typing-text">{{ typingText }}</span
+      ><span class="typing-cursor">_</span>
+    </a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto align-items-center">
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            routerLink="/"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+          >
+            {{ translations?.navbar?.home || 'Home' }}
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/sobre" routerLinkActive="active">
+            {{ translations?.navbar?.about || 'Sobre' }}
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/projetos" routerLinkActive="active">
+            {{ translations?.navbar?.projects || 'Projetos' }}
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/contato" routerLinkActive="active">
+            {{ translations?.navbar?.contact || 'Contato' }}
+          </a>
+        </li>
+        <li class="nav-item ms-2">
+          <button
+            class="btn btn-outline-light btn-sm language-toggle"
+            (click)="toggleLanguage()"
+            type="button"
+            [title]="currentLanguage === 'pt' ? 'Switch to English' : 'Mudar para Português'"
+          >
+            <i class="bi bi-globe me-1"></i>{{ getLanguageLabel() }}
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

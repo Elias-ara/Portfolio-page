@@ -1,0 +1,155 @@
+/* Global Terminal Window Styles */
+/* This file contains reusable terminal window styles used across multiple pages */
+
+.terminal-window {
+  background: #1e1e1e;
+  border-radius: 8px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(9, 193, 132, 0.2);
+  overflow: hidden;
+  animation: slideInUp 0.8s ease-out;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.terminal-window:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(9, 193, 132, 0.4);
+}
+
+.terminal-window-large {
+  margin-top: 2rem;
+}
+
+.terminal-header {
+  background: #2d2d2d;
+  padding: 0.75rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  border-bottom: 1px solid rgba(9, 193, 132, 0.3);
+}
+
+.terminal-buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.terminal-button {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.terminal-button-close {
+  background: #ff5f56;
+}
+
+.terminal-button-minimize {
+  background: #ffbd2e;
+}
+
+.terminal-button-maximize {
+  background: #27c93f;
+}
+
+.terminal-title {
+  color: #09c184;
+  font-family: 'Courier New', monospace;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-left: auto;
+  text-transform: lowercase;
+}
+
+.terminal-body {
+  background: #1e1e1e;
+  padding: 1.5rem;
+  min-height: 200px;
+}
+
+.terminal-window-large .terminal-body {
+  padding: 1.5rem;
+}
+
+.terminal-content {
+  font-family: 'Courier New', monospace;
+  color: #d4d4d4;
+}
+
+.terminal-line {
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  animation: typeIn 0.6s ease-out;
+}
+
+.terminal-prompt {
+  color: #09c184;
+  font-weight: bold;
+}
+
+.terminal-command {
+  color: #4ec9b0;
+  animation: typeIn 0.8s ease-out 0.2s both;
+}
+
+.terminal-output {
+  margin: 1rem 0;
+  padding-left: 1.5rem;
+  animation: fadeInUp 0.8s ease-out 0.4s both;
+}
+
+.terminal-output h1,
+.terminal-output h2,
+.terminal-output h3,
+.terminal-output p {
+  color: #d4d4d4;
+  font-family: inherit;
+}
+
+.terminal-output .lead {
+  color: rgba(212, 212, 212, 0.8);
+}
+
+.terminal-window-large .terminal-content {
+  color: #d4d4d4;
+}
+
+.terminal-window-large .terminal-content .lead {
+  color: rgba(212, 212, 212, 0.8);
+}
+
+/* Terminal Animations */
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes typeIn {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
