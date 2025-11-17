@@ -1,0 +1,10 @@
+{
+  "buildCommand": "cd portfolio-frontend && npm run build",
+  "outputDirectory": "portfolio-frontend/dist/curso",
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}
