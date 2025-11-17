@@ -6,7 +6,18 @@ require("dotenv").config();
 const app = express();
 
 // Middleware
-app.use(cors({ origin: "http://localhost:4200" }));
+const allowedOrigins = [
+  "http://localhost:4200",
+  "http://localhost:3000",
+  process.env.FRONTEND_URL,
+].filter(Boolean);
+
+app.use(
+  cors({
+    origin: allowedOrigins,
+    credentials: true,
+  })
+);
 app.use(bodyParser.json());
 
 // Middleware para processar requisições

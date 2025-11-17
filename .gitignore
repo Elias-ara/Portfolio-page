@@ -5,3 +5,7 @@ dist/
 *.log
 .env
 .env.local
+DEPLOY_GUIDE.md
+DEPLOY_RAPIDO.md
+PRE_DEPLOY_CHECKLIST.md
+package-lock.json
