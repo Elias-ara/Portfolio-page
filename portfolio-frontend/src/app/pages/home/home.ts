@@ -18,7 +18,7 @@ export class Home implements OnInit, OnDestroy {
   private isDeleting: boolean = false;
   private typingTimer: any;
 
-  profileImage: string = '/profile.jpg';
+  profileImage: string = 'profile.jpg';
 
   codeSnippets = [
     'ng generate component user-profile',
