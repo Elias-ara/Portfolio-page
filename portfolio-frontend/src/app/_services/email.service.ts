@@ -14,7 +14,7 @@ interface EmailPayload {
   providedIn: 'root',
 })
 export class EmailService {
-  private backendUrl = 'http://localhost:3000/api';
+  private backendUrl = 'https://portfolio-backend-fh9j.onrender.com/api';
 
   constructor(private http: HttpClient) {}
 
