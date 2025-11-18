@@ -3,20 +3,18 @@ const nodemailer = require("nodemailer");
 class EmailService {
   constructor() {
     this.transporter = nodemailer.createTransport({
-      host: process.env.SMTP_HOST,
-      port: process.env.SMTP_PORT,
-      secure: process.env.SMTP_SECURE === "true",
+      service: "gmail",
       auth: {
-        user: process.env.SMTP_USER,
-        pass: process.env.SMTP_PASSWORD,
+        user: process.env.GMAIL_USER,
+        pass: process.env.GMAIL_PASSWORD,
       },
     });
   }
 
   async sendEmail(data) {
     const mailOptions = {
-      from: process.env.SMTP_FROM_EMAIL,
-      to: process.env.CONTACT_EMAIL,
+      from: process.env.GMAIL_USER,
+      to: process.env.GMAIL_USER,
       replyTo: data.email,
       subject: `Novo contato de ${data.name} - ${data.subject}`,
       html: `
