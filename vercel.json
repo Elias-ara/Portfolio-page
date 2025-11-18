@@ -1,4 +1,6 @@
 {
+  "buildCommand": "npm run build",
+  "outputDirectory": "portfolio-frontend/dist/curso/browser",
   "rewrites": [
     {
       "source": "/(.*)",
