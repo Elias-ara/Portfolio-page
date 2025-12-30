@@ -1,41 +1,27 @@
-const nodemailer = require("nodemailer");
+const { Resend } = require("resend");
 
 class EmailService {
   constructor() {
-    this.transporter = null;
+    this.resend = null;
   }
 
-  getTransporter() {
-    if (!this.transporter) {
-      console.log("Creating email transporter...");
+  getResend() {
+    if (!this.resend) {
+      console.log("Creating Resend client...");
       console.log(
-        "GMAIL_USER:",
-        process.env.GMAIL_USER ? "✓ Set" : "✗ Missing"
+        "RESEND_API_KEY:",
+        process.env.RESEND_API_KEY ? "✓ Set" : "✗ Missing"
       );
-      console.log(
-        "GMAIL_PASSWORD:",
-        process.env.GMAIL_PASSWORD ? "✓ Set" : "✗ Missing"
-      );
-
-      this.transporter = nodemailer.createTransport({
-        service: "gmail",
-        auth: {
-          user: process.env.GMAIL_USER,
-          pass: process.env.GMAIL_PASSWORD,
-        },
-        connectionTimeout: 10000,
-        greetingTimeout: 10000,
-        socketTimeout: 10000,
-      });
+      this.resend = new Resend(process.env.RESEND_API_KEY);
     }
-    return this.transporter;
+    return this.resend;
   }
 
   async sendEmail(data) {
-    const mailOptions = {
-      from: process.env.GMAIL_USER,
-      to: process.env.GMAIL_USER,
-      replyTo: data.email,
+    const emailContent = {
+      from: "Portfolio Contact <onboarding@resend.dev>",
+      to: process.env.CONTACT_EMAIL || "elias.ara.dev@gmail.com",
+      reply_to: data.email,
       subject: `Novo contato de ${data.name} - ${data.subject}`,
       html: `
         <h2>Nova Mensagem de Contato</h2>
@@ -48,9 +34,9 @@ class EmailService {
     };
 
     try {
-      const transporter = this.getTransporter();
-      const result = await transporter.sendMail(mailOptions);
-      console.log("Email sent successfully:", result.messageId);
+      const resend = this.getResend();
+      const result = await resend.emails.send(emailContent);
+      console.log("Email sent successfully:", result);
       return result;
     } catch (error) {
       console.error("Email service error:", error.message);
