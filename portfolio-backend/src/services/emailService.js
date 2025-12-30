@@ -2,13 +2,33 @@ const nodemailer = require("nodemailer");
 
 class EmailService {
   constructor() {
-    this.transporter = nodemailer.createTransport({
-      service: "gmail",
-      auth: {
-        user: process.env.GMAIL_USER,
-        pass: process.env.GMAIL_PASSWORD,
-      },
-    });
+    this.transporter = null;
+  }
+
+  getTransporter() {
+    if (!this.transporter) {
+      console.log("Creating email transporter...");
+      console.log(
+        "GMAIL_USER:",
+        process.env.GMAIL_USER ? "✓ Set" : "✗ Missing"
+      );
+      console.log(
+        "GMAIL_PASSWORD:",
+        process.env.GMAIL_PASSWORD ? "✓ Set" : "✗ Missing"
+      );
+
+      this.transporter = nodemailer.createTransport({
+        service: "gmail",
+        auth: {
+          user: process.env.GMAIL_USER,
+          pass: process.env.GMAIL_PASSWORD,
+        },
+        connectionTimeout: 10000,
+        greetingTimeout: 10000,
+        socketTimeout: 10000,
+      });
+    }
+    return this.transporter;
   }
 
   async sendEmail(data) {
@@ -28,7 +48,9 @@ class EmailService {
     };
 
     try {
-      const result = await this.transporter.sendMail(mailOptions);
+      const transporter = this.getTransporter();
+      const result = await transporter.sendMail(mailOptions);
+      console.log("Email sent successfully:", result.messageId);
       return result;
     } catch (error) {
       console.error("Email service error:", error.message);
