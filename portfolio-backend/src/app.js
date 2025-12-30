@@ -5,6 +5,9 @@ require("dotenv").config();
 
 const app = express();
 
+// Trust proxy - required for express-rate-limit on Render/Heroku/etc
+app.set("trust proxy", 1);
+
 // Middleware
 const allowedOrigins = [
   "http://localhost:4200",
