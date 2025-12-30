@@ -155,7 +155,7 @@ const translations: Record<Language, Translations> = {
       phone: 'Telefone',
       location: 'Localização',
       socialMedia: 'Redes Sociais',
-      successMessage: 'Mensagem enviada com sucesso! (Esta é uma demonstração)',
+      successMessage: 'Mensagem enviada com sucesso!',
     },
   },
   en: {
@@ -236,7 +236,7 @@ const translations: Record<Language, Translations> = {
       phone: 'Phone',
       location: 'Location',
       socialMedia: 'Social Media',
-      successMessage: 'Message sent successfully! (This is a demonstration)',
+      successMessage: 'Message sent successfully!',
     },
   },
 };
